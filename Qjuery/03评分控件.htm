@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <title></title>
+    <style type="text/css">
+        *
+        {
+        	margin:0;
+        	padding:0;
+        }
+        #rating
+        {
+        	list-style-type:none;
+        	margin:50px 100px;
+         }
+         #rating li
+         {
+         	float:left;
+         	width:20px;
+         	text-align:center;
+         	cursor:pointer;
+         }
+    </style>
+
+    <script src="Scripts/jquery-1.4.1-vsdoc.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#rating li").click(function () {
+                $(this).prevAll().andSelf().text("★").end().end().nextAll().text("☆");
+
+            });
+        })
+    
+    </script>
+</head>
+<body>
+    <ul id="rating">
+        <li>
+            ☆
+        </li>
+        <li>
+            ☆
+        </li>
+        <li>
+            ☆
+        </li>
+        <li>
+            ☆
+        </li>
+        <li>
+            ☆
+        </li>
+    </ul>
+</body>
+</html>

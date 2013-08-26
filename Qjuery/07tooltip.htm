@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        .tooltip
+        {
+            width  width:200px;
+            height:100px;
+            border:solid 1px red;
+            background-color:Gray;
+            /* !!!!! */
+            position:absolute;
+         }
+    </style>
+    <script src="Scripts/jquery-1.4.1-vsdoc.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("a").hover(function (e) {
+                //鼠标进过动态创建div
+                var $div = $("<div id='d1'></div>");
+                $div.addClass("tooltip");
+                $div.css("top", e.pageY);
+                $div.css("left", e.pageX);
+                $div.text("这是个神奇的网站！！！");
+
+                $("body").append($div);
+
+            }, function () {
+                //鼠标离开时，删除div
+                var $div = $("#d1");
+                if ($div.length > 0) {
+                    $div.remove();
+                }
+            })
+        })
+    
+    </script>
+</head>
+<body>
+    <a href="http://www.baidu.com">百百度度</a>
+    <br /><br /><br /><br /><br />
+    <a href="http://www.baidu.com">百百度度</a>
+    <br /><br /><br /><br /><br />
+    <a href="http://www.baidu.com">百百度度</a>
+    <br /><br /><br /><br /><br />
+    <a href="http://www.baidu.com">百百度度</a>
+    <br /><br /><br /><br /><br />
+    <a href="http://www.baidu.com">百百度度</a>
+</body>
+</html>

@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+      <style type="text/css">
+        .tooltip
+        {
+            width: 500px;
+            height: 600px;
+            border: solid 1px red;
+            background-color: Gray;
+            position: absolute;
+        }
+    </style>
+    <script src="Scripts/jquery-1.4.1-vsdoc.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var imgs = { "20111223771.jpg": { "src": "images/20111223771.jpg", "title": "图片1" },
+            "20111223772.JPG": { "src": "images/20111223772.jpg", "title": "图片2" },
+            "It女.jpg": { "src": "images/It女.jpg", "title": "图片3" },
+            "台球.jpg": { "src": "images/台球.jpg", "title": "图片4" }
+        };
+        $(function () {
+            $.each(imgs, function () {
+                var $img = $("<img width='200px' margin-left='10px'></img>");
+
+                //添加上src和title属性 后面显示大图片时使用
+                $img.attr("src", this.src);
+
+                //记录下更多数据供后面使用
+                $img.attr("title", this.title);
+                $("#imgs").append($img);
+                //定义div的id的作用是方便后面鼠标移开后删除div
+                $img.hover(function (e) {
+                    var $div = $("<div class='tooltip' id='d1'></div>");
+                    $div.css("top", e.pageY).css("left", e.pageX);
+                    //this触发事件的那个img对象
+                    $div.html("<p>" + $(this).attr("title") + "</p>");
+
+                    var $bigImg = $("<img src='" + $(this).attr("src") + "' width='400px'></img>")
+                    $div.append($bigImg);
+
+                    $("#imgs").append($div);
+
+                }, function () {
+                    var $d = $("#d1");
+                    if ($d.length > 0) {
+                        $d.remove();
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+     <div id="imgs">
+    </div>
+</body>
+</html>

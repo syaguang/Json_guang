@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+         *
+        {
+        	margin:0;
+        	padding:0;
+        }
+        #menu
+        {
+        	list-style-type:none;
+        	margin-top:50px;
+        	margin-left:100px;
+        }
+        #menu li
+        {
+        	float:left;
+        	width:100px;
+			height:30px;
+			line-height:30px;
+        	background-color:Gray;
+        	text-align:center;
+        	cursor:pointer;
+        }
+    </style>
+    <script src="Scripts/jquery-1.4.1-vsdoc.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#menu li").click(function (){
+                $(this).css("background-color", "red").siblings().css("background-color", "gray");
+            });
+        })
+    </script>
+</head>
+<body>
+    <ul id="menu">
+        <li>
+            首页
+        </li>
+        <li>
+            播客
+        </li>
+         <li>
+            相册
+        </li>
+         <li>
+            关于
+        </li>
+    </ul>
+</body>
+</html>
